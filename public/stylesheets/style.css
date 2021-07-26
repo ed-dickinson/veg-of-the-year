@@ -5,6 +5,8 @@ body {
   background-color: rgba(0,255,127,0.25);
 }
 
+main {max-width: 504px; margin: auto;}
+
 a {
   color: black; opacity: 0.75; text-decoration: none; border-bottom: 2px solid black; margin-bottom: -2px;
 }
@@ -67,3 +69,6 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 114%; left: -7%;}
 
 .main-page-tail {position: relative; margin: auto;}
 .main-page-tail-part {height: 10px; border-bottom: 2px solid black; margin: auto; border-radius: 2px;}
+
+
+.stretch-title {text-transform:uppercase; font-weight: 900; letter-spacing: 20px;}
