@@ -62,3 +62,4 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 114%; left: -7%;}
 .harvest-list { position: relative; text-align: center; margin: auto;}
 .sow-list-container {top: 50%; position: absolute; width: 80%; left: 10%;}
 .sow-list { border-top: 0px solid black; position: relative; text-align: center; margin: auto; }
+.harvest-list-inner, .sow-list-inner {font-weight: bold;}
