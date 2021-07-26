@@ -57,7 +57,10 @@
       </div>
     </div>
 
-    <div class="main-page-tail">
+    <div class="main-page-tail"><br>
+      <% for (let i = 10; i > 0; i--) { %>
+        <div class="main-page-tail-part" style="width: <%=(i*10)+i*i%>px;"></div>
+      <% }; %>
     </div>
 
 

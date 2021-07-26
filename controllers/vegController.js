@@ -32,5 +32,5 @@ exports.veg_detail = function(req, res) {
 };
 
 exports.month_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Month list');
+    res.send('NOT IMPLEMENTED: Month list for ' + req.params.name);
 };

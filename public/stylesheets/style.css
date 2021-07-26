@@ -63,3 +63,7 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 114%; left: -7%;}
 .sow-list-container {top: 50%; position: absolute; width: 80%; left: 10%;}
 .sow-list { border-top: 0px solid black; position: relative; text-align: center; margin: auto; }
 .harvest-list-inner, .sow-list-inner {font-weight: bold;}
+
+
+.main-page-tail {position: relative; margin: auto;}
+.main-page-tail-part {height: 10px; border-bottom: 2px solid black; margin: auto; border-radius: 2px;}
