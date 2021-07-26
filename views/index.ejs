@@ -16,7 +16,7 @@
       <p>The seasonal fruit store currently stocks <span style='border: 2px solid springgreen; padding: 0 2px;'><%=data.veg_count%></span> vegetable<% if(data.veg_count!=1){%>s<%}%> over <%=data.month_count%> months. <a href='/veg_list'>Take a look.</a></p>
       <p>The current month is <%=currentMonth.name%>, and these fruits are in season:
         <% data.vegs.forEach(veg => { %>
-          <%=veg.sow%> 
+          <%=veg.sow%>
         <% }) %>
          .</p>
     <% } %>
@@ -28,16 +28,18 @@
           <div class="month" style="transform: rotate(<%=30*(data.months.indexOf(month))%>deg);">
             <a href="month/<%=month.name%>"><%=month.name%></a>
           </div>
-          <div class="month-wheel-line-container" style="transform: rotate(<%=(30*(data.months.indexOf(month)))-15%>deg);">
-            <div class="month-wheel-line">
+            <div class="month-wheel-line" style="transform: rotate(<%=(30*(data.months.indexOf(month)))-15%>deg);">
             </div>
-          </div>
         <% }); %>
 
       </div>
-      <div class="harvest-list">Time to Harvest:
+      <div class="harvest-list-container">
+        <div class="harvest-list">Time to Harvest ^
+        </div>
       </div>
-      <div class="sow-list">Time to Sow:
+      <div class="sow-list-container">
+        <div class="sow-list">Time to Sow <span style="display: inline-block; transform: scaleY(-1);">^</span>
+        </div>
       </div>
     </div>
 
