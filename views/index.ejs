@@ -2,10 +2,47 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('head'); %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('header'); %>
+    <main>
+    <!-- <h1><%= title %></h1> -->
+    <p>Hello and welcome.</p>
+
+    <% if (error) {%>
+      <p>Error getting dynamic content.</p>
+    <% } else { var currentMonth = data.months[new Date().getMonth()];%>
+      <p>The seasonal fruit store currently stocks <span style='border: 2px solid springgreen; padding: 0 2px;'><%=data.veg_count%></span> vegetable<% if(data.veg_count!=1){%>s<%}%> over <%=data.month_count%> months. <a href='/veg_list'>Take a look.</a></p>
+      <p>The current month is <%=currentMonth.name%>, and these fruits are in season:
+        <% data.vegs.forEach(veg => { %>
+          <%=veg.sow%> 
+        <% }) %>
+         .</p>
+    <% } %>
+    <div class="month-wheel-container">
+      <div class="month-wheel" style="transform:rotate(<%=(30*new Date().getMonth())%>deg)">
+
+        <%= %>
+        <% data.months.forEach(month => { %>
+          <div class="month" style="transform: rotate(<%=30*(data.months.indexOf(month))%>deg);">
+            <a href="month/<%=month.name%>"><%=month.name%></a>
+          </div>
+          <div class="month-wheel-line-container" style="transform: rotate(<%=(30*(data.months.indexOf(month)))-15%>deg);">
+            <div class="month-wheel-line">
+            </div>
+          </div>
+        <% }); %>
+
+      </div>
+      <div class="harvest-list">Time to Harvest:
+      </div>
+      <div class="sow-list">Time to Sow:
+      </div>
+    </div>
+
+
+    </main>
+    <%- include('footer'); %>
   </body>
 </html>

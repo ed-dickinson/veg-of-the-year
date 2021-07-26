@@ -1,8 +1,63 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: springgreen;
+  background-color: rgba(0,255,127,0.25);
 }
 
 a {
-  color: #00B7FF;
+  color: black; opacity: 0.75; text-decoration: none; border-bottom: 2px solid black; margin-bottom: -2px;
 }
+a:hover {opacity: 0.5;}
+
+.title-container {text-align:center;}
+
+.header-title {font-size: 2em; font-weight: 900; display: inline-block;}
+.header-subtitle {display: inline-block;}
+
+.header-titles {margin: auto; text-align: center; display: inline-block; position: relative;}
+
+.header-titles::before, .header-titles::after {content: ''; height: 3em; width: 3em;  display: inline-block; background-image: url('/images/corn-icon.png'); background-size: cover; filter: grayscale(100%); opacity: 0.8; position: absolute;}
+
+.header-titles::before {left: -3.5em;}
+.header-titles::after {transform: scaleX(-1); right: -3.5em; top: 0;}
+
+menu {
+  padding: 0; padding-top: 5px;
+  margin: 0; text-align: center;
+
+
+} menu ul {
+  list-style-type: none; padding: 3px 5px 0;
+  margin: 0; display:inline-block;
+  position: relative;
+  /* border-top: 2px solid black; */
+}
+
+menu ul::after, menu ul::before {content: ''; width: 100%; height: 10px; position: absolute; border: 2px solid black; border-radius: 10px; }
+menu ul::after {border-width: 1px 0 0 0; top: 0; left: 0;}
+menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 114%; left: -7%;}
+ menu ul a {
+  color: black; text-decoration: none; text-transform: uppercase; font-weight: bold;
+} menu ul li {
+  display:inline-block; margin: 2px 5px;
+  /* border-right: 2px springgreen solid; */
+} menu ul li:hover {
+
+} menu ul li:hover a {
+  opacity: 0.5;
+}
+
+
+/* MONTH WHEEL */
+.month-wheel-container {width: 504px; height: 504px; position: relative;margin: auto; text-align: center;}
+.month-wheel {
+   border-radius: 50%; border: 2px solid black; position: relative;margin: auto; width: 100%; height: 100%;
+}
+/* .wheel-center {} */
+.month {height: 96%; width: 100%; position: absolute; text-align: center; top: 2%;}
+.month-wheel-line-container {height: 100%; width: 100%; position: absolute;}
+.month-wheel-line {height: 50%; width: 2px; border-left: 0px solid black; position: absolute; background-image: linear-gradient(to bottom, black, rgba(0,0,0,0) 15%); top: 0%; left: calc(50% - 1px); }
+
+.harvest-list {bottom: 50%; position: relative; text-align: center; margin: auto;}
+.sow-list {top: 50%; position: absolute; border-top: 1px solid black; text-align: center; margin: auto; }
