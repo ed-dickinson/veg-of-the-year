@@ -21,6 +21,9 @@ router.post('/veg/create', veg_controller.veg_create_post);
 router.get('/veg/:name/delete', veg_controller.veg_delete_get);
 router.post('/veg/:name/delete', veg_controller.veg_delete_post);
 
+router.get('/veg/:name/update', veg_controller.veg_update_get);
+router.post('/veg/:name/update', veg_controller.veg_update_post);
+
 router.get('/veg/:name', veg_controller.veg_detail);
 
 router.get('/veg_list', veg_controller.veg_list);

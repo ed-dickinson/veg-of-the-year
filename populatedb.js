@@ -118,12 +118,15 @@ function createMonths(cb) {
 function createVegs(cb) {
     async.parallel([
         function(callback) {
-          vegCreate('Beetroot', 'Beta vulgaris', "A leafy plant with a bright red taproot, treasured for it's juice.", [months[5],months[6],months[7],months[8],months[9]],
-          [months[2],months[3],months[4],months[5],months[6]], 55, 1, callback);
+          vegCreate('Beetroot', 'Beta vulgaris', "A leafy plant with a bright red taproot, treasured for it's juice.",
+          [months[2],months[3],months[4],months[5],months[6]], [months[5],months[6],months[7],months[8],months[9]],
+          55, 1, callback);
         },
         function(callback) {
-          vegCreate('Courgette', 'Cucurbita pepo', "A vining herbaceous plant whose fruit are harvested when their immature seeds and rind are still soft and edible.", [months[5],months[6],months[7],months[8],months[9]],
-          [months[3],months[4],months[5]], 55, 1, callback);
+          vegCreate('Courgette', 'Cucurbita pepo', "A vining herbaceous plant whose fruit are harvested when their immature seeds and rind are still soft and edible.",
+          [months[3],months[4],months[5]],
+          [months[5],months[6],months[7],months[8],months[9]],
+          55, 1, callback);
         }
 
         ],

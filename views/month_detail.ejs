@@ -11,7 +11,8 @@
 
     <!-- <p><%=month%></p> -->
 
-    <span class="month-subtitle right-thorny-underline">The <%=month.old_english%></span>
+    <span class="month-subtitle right-thorny-underline"><%=(["January", "June", "July", "December"].some((x) => x == month.name)) ? '' : 'The '%><%=month.old_english%></span>
+    <span class="month-subsubtitle"><%=(month.name == "June") ? "(First Summer)" : (month.name == "July") ? "(Second Summer)" : "";%></span>
 
 
 
