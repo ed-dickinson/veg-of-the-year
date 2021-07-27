@@ -31,7 +31,7 @@
           <% months.forEach(month => {%>
             <div style='display: inline; position: relative;'>
               <label class="checkbox-label" for-'<%=month._id%>'><%=month.name.slice(0,1)%></label>
-              <input id="<%=month._id%>" class="checkbox-input" type="checkbox" name="sow-month" value="<%=month._id%>" selected='<%=(month.checked ? 'true' : 'false')%>'>
+              <input id="<%=month._id%>" class="checkbox-input" type="checkbox" name="sow" value="<%=month._id%>" selected='<%=(month.checked ? 'true' : 'false')%>'>
 
             </div>
           <%});%>
@@ -44,7 +44,7 @@
           <% months.forEach(month => {%>
             <div style='display: inline;  position: relative;'>
               <label class="checkbox-label" for-'<%=month._id%>'><%=month.name.slice(0,1)%></label>
-              <input id="<%=month._id%>" class="checkbox-input" type="checkbox" name="harvest-month" value="<%=month._id%>" selected='<%=(month.checked ? 'true' : 'false')%>'>
+              <input id="<%=month._id%>" class="checkbox-input" type="checkbox" name="harvest" value="<%=month._id%>" selected='<%=(month.checked ? 'true' : 'false')%>'>
 
             </div>
           <%});%>

@@ -6,7 +6,6 @@ var Schema = mongoose.Schema;
 var MonthSchema = new Schema(
   {
     name: {type: String, required: true,
-      // enum: ['January', 'February', 'March', 'March']
     },
 
     old_english: {type: String, maxLength: 200}

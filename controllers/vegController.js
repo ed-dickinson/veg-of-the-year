@@ -65,9 +65,76 @@ exports.veg_create_get = function(req,res,next) {
     });
 }
 
-exports.veg_create_post = function(req,res,next) {
-  res.send('NOT IMPLEMENTED: veg create POST');
-}
+// exports.veg_create_post = function(req,res,next) {
+//   res.send('NOT IMPLEMENTED: veg create POST');
+// }
+
+exports.veg_create_post = [
+  (req,res,next) => {
+    if(!(req.body.sow instanceof Array)) {
+      if(typeof req.body.sow === 'undefined')
+      req.body.sow =[];
+      else
+      req.body.sow = new Array(req.body.sow);
+    }
+    if(!(req.body.harvest instanceof Array)) {
+      if(typeof req.body.harvest === 'undefined')
+      req.body.harvest =[];
+      else
+      req.body.harvest = new Array(req.body.harvest);
+    }
+    next();
+  },
+
+  body('name', 'Name must not be blank.').trim().isLength({min:1}).escape(),
+  body('species', 'Needs species.').trim().isLength({min:1}).escape(),
+  body('description', 'Needs desc.').trim().isLength({min:1}).escape(),
+  body('sow.*').escape(),
+  body('harvest.*').escape(),
+
+  (req,res,next) => {
+    const errors = validationResult(req);
+
+    var veg = new Veg(
+      { name: req.body.name,
+        species: req.body.species,
+        description: req.body.description,
+        sow: req.body.sow,
+        harvest: req.body.harvest }
+    );
+
+    if (!errors.isEmpty()) {
+
+    } else {
+      veg.save(function(err) {
+        if (err) {return next(err);}
+        res.redirect(veg.url);
+      });
+    }
+  }
+];
+
+exports.veg_delete_get = function(req, res, next) {
+    // res.send('NOT IMPLEMENTED: veg delete GET delete ' + req.params.name);
+    Veg.findOne({ 'name' : req.params.name})
+    .exec(function(err, veg) {
+      if (err) {return next(err);}
+      if (veg==null) {
+        var err = new Error('Veg not found to delete!');
+        err.status = 404;
+        return next(err);
+      }
+      res.render('veg_delete', {title: 'Delete ' + veg.name, veg: veg});
+    })
+};
+
+exports.veg_delete_post = function(req, res, next) {
+    // res.send('NOT IMPLEMENTED: veg delete POST delete ' + req.params.name);
+    Veg.findByIdAndRemove(req.body.vegid, function deleteVeg(err) {
+      if (err) {return next(err);}
+      res.render('veg_deleted', {title: 'Fruit deleted'});
+    });
+};
 
 
 exports.month_detail = function(req, res, next) {
