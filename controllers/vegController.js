@@ -26,14 +26,29 @@ exports.veg_list = function(req, res) {
     res.send('NOT IMPLEMENTED: Veg list');
 };
 
-// Display detail page for a specific Genre.
-exports.veg_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Veg detail: ' + req.params.name);
+exports.veg_detail = function(req, res, next) {
+  async.parallel({
+    veg: function(callback) {
+      Veg.findOne({'name' : req.params.name})
+      .populate('sow', 'name')
+      .populate('harvest', 'name')
+      .exec(callback);
+    },
+    months: function(callback) {
+      Month.find()
+      .select('name')
+      .exec(callback);
+    },
+  },  function(err, results) {
+      if (err) {return next(err);}
+        if (results.veg==null) {
+          var err = new Error('Veg not found');
+          err.status = 404;
+          return next(err);
+        }
+        res.render('veg_detail', {title: results.veg.name, veg: results.veg, months: results.months});
+    });
 };
-
-// exports.month_detail = function(req, res) {
-//     res.send('NOT IMPLEMENTED: Month list for ' + req.params.name);
-// };
 
 exports.month_detail = function(req, res, next) {
     // res.send('NOT IMPLEMENTED: month detail: ' + req.params.name);

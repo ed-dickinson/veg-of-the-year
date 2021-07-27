@@ -90,3 +90,14 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 114%; left: -7%;}
  .left-thorny-underline.alt::before {border-radius: 0 0 5px 5px; left: -5%; width: 105%;}
 
  li.month-vegs a {font-weight: bold; border-bottom: 0;}
+
+
+ /* VEG DETAIL */
+
+ .sow-table, .harvest-table {width: 100%; border: 0px solid black; height: 2em; position: relative;}
+
+ .sow-table-cell, .harvest-table-cell {width: calc((100% / 12) - 10px); height: 100%; border: 2px solid black; display: inline-block; margin: 0; padding: 0; position: relative; border-radius: 50%; text-align: center; line-height: 2em;}
+
+ .sow-table-cell.selected, .harvest-table-cell.selected {background-color: black; color: HSL(150, 100%, 87.5%);}
+
+ .table-title {margin-bottom: 0.5em; text-align: right; margin-right: 2em;}

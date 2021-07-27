@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('head'); %>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <main>
+    <h1 style="display: inline-block;"><%= title %></h1>
+    <h3 style="display: inline-block;"><em><%= veg.species %></em></h3>
+
+
+    <p><%=veg.description%></p>
+
+    <p>It takes <%=veg.maturation%> days to mature.</p>
+
+    <p><div class="table-title"><em>When to sow:</em></div>
+      <!-- <%=veg.sow%> -->
+      <div class="sow-table">
+        <% for (let i=0; i<12; i++) { %>
+
+          <span class="sow-table-cell <%=(veg.sow.some((x) => x.name == months[i].name)) ? 'selected' : ''%>" >
+            <%= months[i].name.slice(0,1); %>
+          </span>
+        <% } %>
+      </div>
+    </p>
+
+    <p><div class="table-title"><em>When to harvest:</em></div>
+      <!-- <%=veg.harvest%> -->
+      <div class="harvest-table">
+        <% for (let i=0; i<12; i++) { %>
+
+          <span class="harvest-table-cell <%=(veg.harvest.some((x) => x.name == months[i].name)) ? 'selected' : ''%>" >
+            <%= months[i].name.slice(0,1); %>
+          </span>
+        <% } %>
+      </div>
+    </p>
+
+
+
+    </main>
+    <%- include('footer'); %>
+  </body>
+</html>
