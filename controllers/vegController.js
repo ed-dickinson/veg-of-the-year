@@ -22,8 +22,14 @@ exports.index = function(req, res){
   });
 };
 
-exports.veg_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Veg list');
+exports.veg_list = function(req, res, next) {
+    // res.send('NOT IMPLEMENTED: Veg list');
+    Veg.find()
+    .select('name species description')
+    .exec(function (err, vegs) {
+      if (err) {return next(err);}
+      res.render('veg_list', {title: 'Veg List', vegs: vegs})
+    })
 };
 
 exports.veg_detail = function(req, res, next) {
