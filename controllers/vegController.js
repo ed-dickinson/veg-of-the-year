@@ -162,7 +162,7 @@ exports.veg_update_get = function(req, res, next) {
     //                 }
     //             }
     //         }
-            res.render('veg_form', { title: 'Update Vegetable', months: results.months, veg: results.veg });
+            res.render('veg_form', { title: 'Update Vegetable', months: results.months, veg: results.veg, noop: req.body._id });
         });
 
 }
@@ -201,7 +201,7 @@ exports.veg_update_post = [
         harvest: (typeof req.body.harvest==='undefined') ? [] : req.body.harvest,
         maturation: req.body.maturation,
         stock: req.body.stock,
-        _id:req.body.id
+        _id:req.body.vegid
       }
     );
 
@@ -219,7 +219,7 @@ exports.veg_update_post = [
       return;
 
     } else {
-      Veg.findOneAndUpdate(req.body.name, veg, {}, function(err,veg) {
+      Veg.findByIdAndUpdate(req.body.vegid, veg, {}, function(err,veg) {
         if (err) {return next(err);}
         res.redirect('/veg/' + veg.name);
       });
