@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('head'); %>
+  </head>
+  <body>
+    <%- include('header'); %>
+    <main>
+    <h1 style="display: inline-block;"><%= title %></h1>
+
+    <!-- <p><%=month%></p> -->
+
+    <span class="month-subtitle right-thorny-underline">The <%=month.old_english%></span>
+
+
+
+    <%if (sow_veg.length == 0) {%>
+      <p><span class="left-thorny-underline">Nothing is ready to sow!</span></p>
+    <% } else { %>
+
+    <p><span class="left-thorny-underline">Sow your </span>
+      <% sow_veg.forEach(veg => {%>
+      <li class='month-vegs'>
+        <a href="/veg/<%=veg.name%>"><%=veg.name%>s</a>
+      </li>
+      <%});%>
+    </p>
+<% } %>
+
+    <%if (harvest_veg.length == 0) {%>
+      <p><span class="left-thorny-underline alt">Nothing is ready to harvest!</span></p>
+  <% } else { %>
+
+    <p><span class="left-thorny-underline alt"><%= sow_veg.length == 0 ? 'but i' : 'I' %>t's time to harvest your: </span>
+
+
+      <% harvest_veg.forEach(veg => {%>
+      <li class='month-vegs'>
+        <a href="/veg/<%=veg.name%>"><%=veg.name%>s</a>
+      </li>
+      <%});%>
+    </p>
+    <% } %>
+
+    </main>
+    <%- include('footer'); %>
+  </body>
+</html>
