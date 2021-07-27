@@ -22,12 +22,14 @@
       <p class="veg-listing">
       <% vegs.forEach(veg => {%>
 
-          <a href="veg/<%=veg.name%>"><%=veg.name%></a> <em>(<%=veg.species%>)</em><%=vegs.indexOf(veg) == vegs.length-1 ? '' : ','%> 
+          <a href="veg/<%=veg.name%>"><%=veg.name%></a> <em>(<%=veg.species%>)</em><%=vegs.indexOf(veg) == vegs.length-1 ? '' : ','%>
 
       <%});%>
       </p>
 
     <% } %>
+
+    <p><a href="veg/create">Add a new one.</a></p>
 
 
     </main>

@@ -3,6 +3,8 @@ var Month = require('../models/month');
 
 var async = require('async');
 
+const {body,validationResult} = require('express-validator');
+
 exports.index = function(req, res){
   async.parallel({
     veg_count: function(callback) {
@@ -55,6 +57,18 @@ exports.veg_detail = function(req, res, next) {
         res.render('veg_detail', {title: results.veg.name, veg: results.veg, months: results.months});
     });
 };
+
+exports.veg_create_get = function(req,res,next) {
+  Month.find().exec(function(err, months){
+      if (err) {return next(err);}
+      res.render('veg_form', {title: 'Add a new Vegetable', months: months});
+    });
+}
+
+exports.veg_create_post = function(req,res,next) {
+  res.send('NOT IMPLEMENTED: veg create POST');
+}
+
 
 exports.month_detail = function(req, res, next) {
     // res.send('NOT IMPLEMENTED: month detail: ' + req.params.name);

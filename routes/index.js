@@ -15,6 +15,10 @@ router.get('/info', function(req, res, next) {
 
 router.get('/month/:name', veg_controller.month_detail);
 
+router.get('/veg/create', veg_controller.veg_create_get);
+
+router.post('/veg/create', veg_controller.veg_create_post);
+
 router.get('/veg/:name', veg_controller.veg_detail);
 
 router.get('/veg_list', veg_controller.veg_list);
