@@ -48,7 +48,16 @@
     </p>
 
     <br>
-    <p><a href="/veg/<%=veg.name%>/update">Update?</a> / <a href="/veg/<%=veg.name%>/delete">Delete?</a> / <a href="/veg/<%=veg.name%>/addphoto">Add Photo?</a></p>
+    <p><span class="modify-link"><a class="modify-link">Modify?</a></span>
+
+      <span class="update-delete hidden">—
+
+        <% if (!typeof user) { %>
+          <a href="/veg/<%=veg.name%>/addphoto">Add Photo?</a> / <a href="/veg/<%=veg.name%>/update">Update?</a> / <a href="/veg/<%=veg.name%>/delete">Delete?</a>
+        <% } else { %>
+          Insufficient user priviledges!
+        <% } %>
+      </span></p>
 
     <!-- <%=veg%> -->
 
@@ -57,5 +66,6 @@
     </main>
     <%- include('footer'); %>
     <script src="/javascripts/charactercodes.js"></script>
+    <script src="/javascripts/modification.js"></script>
   </body>
 </html>

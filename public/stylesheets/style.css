@@ -103,7 +103,10 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 116%; left: -8%;}
 
  .month-subsubtitle {position: absolute; right: 5px; top: 4em;}
 
+a.modify-link {cursor: pointer;}
 
+.modify-link-span {}
+.hidden {width: 0; display: inline-block; overflow-x: hidden; transition: 0.25s; height: 1em; }
 
 
  /* VEG DETAIL */
