@@ -20,10 +20,10 @@
       <p><span class="left-thorny-underline">Nothing is ready to sow!</span></p>
     <% } else { %>
 
-    <p><span class="left-thorny-underline">Sow your </span>
+    <p><span class="left-thorny-underline">It's time to sow your: </span>
       <% sow_veg.forEach(veg => {%>
       <li class='month-vegs'>
-        <a href="/veg/<%=veg.name%>"><%=veg.name%>s</a>
+        <a href="/veg/<%=veg.name%>"><%=veg.name%>s</a><%= (sow_veg.indexOf(veg) != sow_veg.length-1) ? "," : '' %>
       </li>
       <%});%>
     </p>
@@ -33,12 +33,12 @@
       <p><span class="left-thorny-underline alt">Nothing is ready to harvest!</span></p>
   <% } else { %>
 
-    <p><span class="left-thorny-underline alt"><%= sow_veg.length == 0 ? 'but i' : 'I' %>t's time to harvest your: </span>
+    <p><span class="left-thorny-underline alt"><%= sow_veg.length == 0 ? "but it's" : '&' %> time to harvest your: </span>
 
 
       <% harvest_veg.forEach(veg => {%>
       <li class='month-vegs'>
-        <a href="/veg/<%=veg.name%>"><%=veg.name%>s</a>
+        <a href="/veg/<%=veg.name%>"><%=veg.name%><%=(veg.name.slice(-1)=='o')?'e':'';%>s</a><%= (harvest_veg.indexOf(veg) != harvest_veg.length-1) ? "," : '' %>
       </li>
       <%});%>
     </p>

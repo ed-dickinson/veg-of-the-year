@@ -11,7 +11,9 @@
 
     <h1 style="display: inline-block;"><%= title %></h1>
     <h3 style="display: inline-block;"><em><%= veg.species %></em></h3>
+    <% if (typeof veg.image) { %>
     <img class="veg-detail-image" src="/uploads/<%=veg.image%>">
+    <% } %>
 
 
     <p class="p-description"><%=veg.description%></p>

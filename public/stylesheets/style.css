@@ -101,6 +101,8 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 116%; left: -8%;}
 
  li.month-vegs a {font-weight: bold; border-bottom: 0;}
 
+ li.month-vegs {display: inline; line-height: 1.3em;}
+
  .month-subsubtitle {position: absolute; right: 5px; top: 4em;}
 
 a.modify-link {cursor: pointer;}
