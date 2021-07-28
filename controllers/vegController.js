@@ -3,6 +3,9 @@ var Month = require('../models/month');
 
 var async = require('async');
 
+var multer  = require('multer');
+var upload = multer({ dest: 'public/uploads/' });
+
 const {body,validationResult} = require('express-validator');
 
 exports.index = function(req, res){
@@ -104,11 +107,11 @@ exports.veg_create_post = [
       Month.find().exec(function(err, months){
         if (err) {return next(err);}
 
-        for (let i = 0; i < months.length; i++) {
-          if (veg.month.indexOf(months[i]._id) > -1) {
-            months[i].checked='true';
-          }
-        }
+        // for (let i = 0; i < months.length; i++) {
+        //   if (veg.month.indexOf(months[i]._id) > -1) {
+        //     months[i].checked='true';
+        //   }
+        // }
         res.render('veg_form', {title: 'Add Veg', months: months, veg: veg, errors: errors.array()});
       });
     } else {
@@ -162,7 +165,7 @@ exports.veg_update_get = function(req, res, next) {
     //                 }
     //             }
     //         }
-            res.render('veg_form', { title: 'Update Vegetable', months: results.months, veg: results.veg, noop: req.body._id });
+            res.render('veg_form', { title: 'Update Vegetable', months: results.months, veg: results.veg });
         });
 
 }
@@ -227,9 +230,37 @@ exports.veg_update_post = [
   }
 ];
 
-// function(req, res, next) {
-//   res.send('not imp');
-// }
+exports.veg_addphoto_get = function(req, res, next) {
+  Veg.findOne({ 'name' : req.params.name})
+  .exec(function(err, veg) {
+    if (err) {return next(err);}
+    if (veg==null) {
+      var err = new Error('Veg not found!');
+      err.status = 404;
+      return next(err);
+    }
+    res.render('veg_addphoto', {title: 'Add photo to ' + veg.name, veg: veg});
+  });
+};
+
+exports.veg_addphoto_post = [
+  upload.single('avatar'),
+  function(req, res, next) {
+  // Veg.findOne({ 'name' : req.params.name})
+  // .exec(function(err, veg) {
+  //   if (err) {return next(err);}
+  //   if (veg==null) {
+  //     var err = new Error('Veg not found!');
+  //     err.status = 404;
+  //     return next(err);
+  //   }
+  Veg.findByIdAndUpdate(req.body.vegid, {image: req.file.filename}, {}, function(err,veg) {
+    if (err) {return next(err);}
+    // res.redirect('/veg/' + req.body.name);
+    res.render('veg_addedphoto', {title: 'Added photo to ', file: req.file, veg: veg, idd: req.body.vegid});
+  });
+
+}];
 
 
 

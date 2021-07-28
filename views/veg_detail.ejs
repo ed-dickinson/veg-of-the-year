@@ -7,13 +7,19 @@
   <body>
     <%- include('header'); %>
     <main>
+    <div  style="overflow: auto;">
+
     <h1 style="display: inline-block;"><%= title %></h1>
     <h3 style="display: inline-block;"><em><%= veg.species %></em></h3>
+    <img class="veg-detail-image" src="/uploads/<%=veg.image%>">
 
 
     <p><%=veg.description%></p>
 
     <p>They take <%=veg.maturation%> days to mature.</p>
+
+
+    </div>
 
     <p><div class="table-title"><em>When to sow:</em></div>
       <!-- <%=veg.sow%> -->
@@ -42,7 +48,7 @@
     </p>
 
     <br>
-    <p><a href="/veg/<%=veg.name%>/update">Update?</a> / <a href="/veg/<%=veg.name%>/delete">Delete?</a></p>
+    <p><a href="/veg/<%=veg.name%>/update">Update?</a> / <a href="/veg/<%=veg.name%>/delete">Delete?</a> / <a href="/veg/<%=veg.name%>/addphoto">Add Photo?</a></p>
 
     <!-- <%=veg%> -->
 

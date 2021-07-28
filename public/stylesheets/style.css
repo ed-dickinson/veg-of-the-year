@@ -41,6 +41,8 @@ menu ul::after {border-width: 1px 0 0 0; top: 0; left: 0;}
 menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 116%; left: -8%;}
  menu ul a {
   color: black; text-decoration: none; text-transform: uppercase; font-weight: bold; border-radius: 2px;
+} menu ul li:first-of-type a { border-radius: 0 0 0 15%;
+} menu ul li:last-of-type a { border-radius: 0 0 15% 0;
 } menu ul li {
   display:inline-block; margin: 2px 5px;
   /* border-right: 2px springgreen solid; */
@@ -62,12 +64,12 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 116%; left: -8%;}
 .month a::after {position: absolute; top: 100%; content: ''; width: 0; height: 5px; border-left: 2px solid black; left: 50%;}
 .month-wheel-line {height: 100%; width: 2px; border-left: 0px solid black; position: absolute; background-image: linear-gradient(to bottom, black, rgba(0,0,0,0) 10%); top: 0%; left: calc(50% - 1px); }
 
-.harvest-list-container, .sow-list-container {position: absolute; width: 70%; left: 15%;}
+.harvest-list-container, .sow-list-container {position: absolute; width: 60%; left: 20%;}
 .harvest-list-container {bottom: 51.5%; }
 .harvest-list { position: relative; text-align: center; margin: auto;}
 .sow-list-container {top: 51%;}
 .sow-list { border-top: 0px solid black; position: relative; text-align: center; margin: auto; }
-.harvest-list-inner, .sow-list-inner {font-weight: bold;}
+.harvest-list-inner, .sow-list-inner {font-weight: bold; line-height: 1.4em;}
 .harvest-list-breaker {height: 10px; width: 50%; position: absolute; left: 25%; background-color: ; top: 50%; border-top: 1px solid black; border-radius: 5px;}
 .harvest-list-breaker2 {height: 10px; width: 50%; position: absolute; left: 25%; background-color: ; bottom: 50%; border-bottom: 1px solid black; border-radius: 10px;}
 .sow-list-inner {margin-top: 0.5em;}
@@ -117,6 +119,9 @@ menu ul::before {border-width: 0 0 1px 0; bottom: 100%; width: 116%; left: -8%;}
  .sow-table a, .harvest-table a {opacity: 1; border-bottom: 0;}
  .sow-table a:hover, .harvest-table a:hover {opacity: 0.75;}
 
+ img.veg-image {filter: grayscale(100%) saturate(100%) contrast(200%); opacity: 0.8; max-width: 100%; mix-blend-mode: multiply;}
+ img.veg-detail-image {filter: grayscale(100%) saturate(100%) contrast(200%); opacity: 0.8; max-width: 30%; mix-blend-mode: multiply; float:right; margin-top: 20px;}
+
  /* VEG LIST */
 
  .veg-listing a {border: 0; font-weight: 900; line-height: 1.5em;}
@@ -149,7 +154,7 @@ label[for=description] {
   vertical-align: top;
 }
 
-textarea[type=textarea] {border: 2px solid black; background-color: transparent; font-family: inherit; width: calc(100% - 8px); margin-top: 5px; height: 4em;}
+textarea[type=textarea] {border: 2px solid black; background-color: transparent; font-family: inherit; width: calc(100% - 8px); margin-top: 5px; height: 6em;}
 
  input[type=checkbox] { cursor: pointer;
   border: 2px solid black;

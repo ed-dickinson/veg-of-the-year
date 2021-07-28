@@ -12,7 +12,8 @@ var VegSchema = new Schema(
     sow: [{type: Schema.Types.ObjectId, ref: 'Month'}],
     harvest: [{type: Schema.Types.ObjectId, ref: 'Month'}],
     maturation: {type: Number},
-    stock: {type: Number, min: 0, max: 999}
+    stock: {type: Number, min: 0, max: 999},
+    image: {type: String}
   }
 );
 
