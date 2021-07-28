@@ -221,7 +221,7 @@ exports.veg_update_post = [
     } else {
       Veg.findByIdAndUpdate(req.body.vegid, veg, {}, function(err,veg) {
         if (err) {return next(err);}
-        res.redirect('/veg/' + veg.name);
+        res.redirect('/veg/' + req.body.name);
       });
     }
   }
